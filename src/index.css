@@ -14,6 +14,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.mainlogin{
+  width:50%;
+  
+}
+
 
 #root {
   width: 100%;
