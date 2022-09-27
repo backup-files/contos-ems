@@ -7,7 +7,7 @@ import RegisterTechnician from './components/RegisterTechnician';
 function App() {
   return (
     <>
-      <div id="mainBody" className="container">
+      <div id="mainBody" >
         <Routes>
         <Route path="/Register" element={<Register/>}>
           <Route path="/Register/PlantAdmin" element={<RegisterPlantAdmin/>}/>
