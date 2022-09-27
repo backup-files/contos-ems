@@ -35,10 +35,17 @@ body {
   border-bottom-left-radius: 0;
 }
 #confirmPasswordt {
-    margin-bottom: -1px;
+    margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   
+}
+#confirmPassword {
+  margin-bottom: -1px;
+border-top-left-radius: 0;
+border-top-right-radius: 0;
+border-bottom-right-radius: 0;
+border-bottom-left-radius: 0;
 }
 #Password {
     margin-bottom: -1px;
@@ -55,12 +62,15 @@ body {
 .nav-link{
     /* color: #000 !important; */
     /* background: #0495c9 !important; */
-    border-color: black !important;
+   
+    width:250px;
+    /* border:1px solid grey;s */
+    
 }
 .nav-link:hover, .nav-link:focus, .nav-link:active, .nav-link.active, .open>.dropdown-toggle.nav-link {
     color: #fff !important;
-    background-color: #00b3db !important;
-    border-color: #285e8e !important; /*set the color you want here*/
+    background-color: blue !important;
+    /* border-color: grey !important; set the color you want here */
 }
 
 .bd-placeholder-img {
