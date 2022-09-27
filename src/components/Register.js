@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
-import { Outlet, useNavigate, NavLink } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom1";
 import './Register.css';
 
 export default function Register() {
-  const navigate = useNavigate();
   const navStyle = ({isActive}) => {
     return {
       textColor: isActive ? 'green' : 'white',
@@ -13,7 +12,7 @@ export default function Register() {
 
   return (
     <>
-      <ul className="nav nav-pills justify-content-center m-2"  >
+      <ul id="tabView" className="nav nav-pills justify-content-center m-2"  >
         <li className="nav-item">
           <NavLink className="nav-link" style={navStyle} to="/Register/PlantAdmin">Register as Plant Admin</NavLink>
         </li>

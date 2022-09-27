@@ -120,7 +120,7 @@ const Header = ({
                       className="list-reset header-nav-right"
                     >
                       <li>
-                        <Link to=" " className="button button-primary button-wide-mobile button-sm">Sign up</Link>
+                        <Link to="/Register" className="button button-primary button-wide-mobile button-sm">Sign up</Link>
                       </li>
                     </ul>}
                 </div>

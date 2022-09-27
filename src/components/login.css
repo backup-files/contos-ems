@@ -1,24 +1,28 @@
 #tabView {
-  width: 100%;
-}
-
-#tabView > .nav-item {
-  width: 40%;
-}
-
-#tabView > .nav-item > .nav-link {
-  text-align: center;
-  width: 90%;
-}
-
-.form-signin {
-  width: 100%;
+    width: 100%;
+  }
+  
+  #tabView > .nav-item {
+    width: 40%;
+  }
+  
+  #tabView > .nav-item > .nav-link {
+    text-align: center;
+    width: 90%;
+  }
+  
+  .form-signin {
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .login-form {
+    max-width: 600px !important;
+    width: 80vw;
+  }
+  .form-signin {
+  max-width: 400px;
   padding: 15px;
-}
-
-.register-form {
-  max-width: 600px !important;
-  width: 80vw;
 }
 
 .form-signin .form-floating:focus-within {
@@ -64,13 +68,17 @@ border-bottom-left-radius: 0;
     border-top-right-radius: 0;
   }
 .nav-link{
+    /* color: #000 !important; */
+    /* background: #0495c9 !important; */
    
     width:250px;
+    /* border:1px solid grey;s */
     
 }
 .nav-link:hover, .nav-link:focus, .nav-link:active, .nav-link.active, .open>.dropdown-toggle.nav-link {
     color: #fff !important;
     background-color: blue !important;
+    /* border-color: grey !important; set the color you want here */
 }
 
 .bd-placeholder-img {
@@ -122,4 +130,4 @@ border-bottom-left-radius: 0;
     text-align: center;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
-  } 
+  }

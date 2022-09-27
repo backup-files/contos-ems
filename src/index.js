@@ -5,16 +5,22 @@ import { createBrowserHistory } from "history";
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 //import './App.css';
 import './assets/scss/style.scss';
+import { BrowserRouter } from 'react-router-dom1';
 
 const history = createBrowserHistory();
 
-ReactDOM.render(
-  <Router history={history}>
+ReactDOM.render(<>
+  {/* <Router history={history}>
     <App />
-  </Router>,
+  </Router> */}
+  <BrowserRouter>
+    <App/>
+  </BrowserRouter>
+
+</>,
   document.getElementById('root')
 );
 
