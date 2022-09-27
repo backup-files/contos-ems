@@ -32,7 +32,7 @@ export default function RegisterTechnician() {
         </label>
       </div>
       <button className="w-100 btn btn-lg btn-primary" type="submit">Register</button>
-      
+      <p >Already registered?<a  href="./LoginTechnician"> Log In</a> </p>
   </form>
 </main>
 

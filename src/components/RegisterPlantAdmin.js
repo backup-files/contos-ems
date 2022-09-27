@@ -1,7 +1,12 @@
 import React from 'react';
+import {useNavigate} from'react-router-dom'
 import './Register.css';
 
 export default function RegisterPlantAdmin() {
+  const navigate= useNavigate();
+  function place(){
+      navigate('LoginPlantAdmin')
+  }
   return (
     <>
     <div className="text-center" >
@@ -34,7 +39,7 @@ export default function RegisterPlantAdmin() {
         </label>
       </div>
       <button className="w-100 btn btn-lg btn-primary" type="submit">Register</button>
-   
+        <p >Already registered?<a  href="./LoginPlantAdmin"> Log In</a> </p>
   </form>
 </div>
 
