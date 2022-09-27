@@ -1,10 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Register from './components/Register';
+import {Routes,Route} from 'react-router-dom';
+import RegisterPlantAdmin from './components/RegisterPlantAdmin';
+import RegisterTechnician from './components/RegisterTechnician';
 function App() {
   return (
     <>
-      Hello, world!
+      <div id="mainBody" className="container">
+        <Routes>
+        <Route path="/Register" element={<Register/>}>
+          <Route path="PlantAdmin" element={<RegisterPlantAdmin/>}/>
+          <Route path="Technician" element={<RegisterTechnician/>}/>
+        </Route>
+        </Routes>
+      </div>
     </>
   );
 }
