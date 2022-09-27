@@ -5,10 +5,9 @@ export default function RegisterTechnician() {
   return (
     <>
       <div className="text-center">
-
+  
 <main className="form-signin w-300 m-auto">
   <form >
-    {/* <img className="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"/> */}
       {/* <h1 className="h3 mb-3 fw-normal">Technician Sign Up</h1> */}
       <div className="form-floating">
         <input type="text" className="form-control" id="floatingInput" placeholder="name@example.com"/>
@@ -27,7 +26,7 @@ export default function RegisterTechnician() {
           <label htmlFor="floatingPasswordt">Confirm Password</label>
       </div>
       
-      <div className="checkbox mb-3">
+      <div className="checkbox mb-3" >
         <label>
           <input type="checkbox" value="remember-me"/> I accept Terms and Conditions
         </label>
