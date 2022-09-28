@@ -1,9 +1,20 @@
 import { useQuery, gql } from '@apollo/client';
 import React, { useEffect } from 'react';
 var email = undefined;
+var adminEmail = undefined;
 
 const isLoggedIn = () => {
     if(email === undefined) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+
+const isAdminLoggedIn = () => {
+    if(adminEmail === undefined) {
         return false;
     }
     else {
@@ -31,4 +42,4 @@ function IsTechnicianLoggedIn() {
     return <></>;
 }
 
-export {IsTechnicianLoggedIn, isLoggedIn};
+export {IsTechnicianLoggedIn, isLoggedIn, isAdminLoggedIn};

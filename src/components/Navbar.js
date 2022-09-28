@@ -22,9 +22,15 @@ export default function Navbar() {
                         <li className="nav-item" style={{ marginLeft: "10px", textAlign: "center" }}>
                             <NavLink className="nav-link" to="/About">About</NavLink>
                         </li>
-                        <li className="nav-item" style={{ marginLeft: "10px", textAlign: "center" }}>
-                            <NavLink className="nav-link" to="/Dashboard">Dashboard</NavLink>
-                        </li>
+                        {
+                            (() => {
+                                if(isLoggedIn())
+                                    return <li className="nav-item" style={{ marginLeft: "10px", textAlign: "center" }}>
+                                        <NavLink className="nav-link" to="/Dashboard">Dashboard</NavLink>
+                                    </li>
+                            }
+                            )()
+                        }
 
                     </ul>
                     {(() => {
@@ -43,6 +49,7 @@ export default function Navbar() {
                         }
                         else {
                             return <>
+                            <a className="nav-link" href="/Register">Register</a>
                                 <a className="nav-link" href="/Login">Login</a>
                             </>
                         }
