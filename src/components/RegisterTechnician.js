@@ -1,7 +1,15 @@
 import React from 'react';
 import './Register.css';
-
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom1';
+import Navbar from './Navbar';
 export default function RegisterTechnician() {
+  const navigate = useNavigate();
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const confirmPasswordRef = useRef();
+
   return (
     <>
       <div className="text-center">

@@ -1,6 +1,6 @@
 import React from 'react';
 import './EquipmentDetails.css';
-import { isAdminLoggedIn,isLoggedIn } from './services/Auth';
+import { UserManager } from './services/Auth';
 import { useNavigate } from 'react-router-dom1';
 
 export default function EquipmentDetails(props) {
@@ -23,7 +23,7 @@ export default function EquipmentDetails(props) {
                                 <p>{details.description}</p>
                                 {/* <button className="btn btn-primary btn-rounded"  href="AddNotification">Raise Notification</button> */}
                                 {(() => {
-                                    if (!isAdminLoggedIn() && isLoggedIn()) { return <button className="btn btn-primary btn-rounded" onClick={(e) => {
+                                    if (!UserManager.isAdminLoggedIn() && UserManager.isLoggedIn()) { return <button className="btn btn-primary btn-rounded" onClick={(e) => {
                                         e.preventDefault();
                                         navigate('/AddNotification', {
                                             state: {

@@ -1,0 +1,8 @@
+#notification-card:hover {
+    background-color: blue;
+    color: white;
+}
+#notification-card {
+    background-color: black;
+    color: white;
+}

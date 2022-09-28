@@ -16,7 +16,7 @@ import { BrowserRouter } from 'react-router-dom1';
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: 'https://contosems.azurewebsites.net/graphql',
+  uri: 'https://contos-ems.azurewebsites.net/graphql',
   cache: new InMemoryCache(),
 });
 

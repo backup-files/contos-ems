@@ -1,26 +1,32 @@
-import { useQuery, gql } from '@apollo/client';
+import { useQuery, gql, useMutation } from '@apollo/client';
 import React, { useEffect } from 'react';
-var email = 1;
-var adminEmail = undefined;
+import RegisterPlantAdmin from '../RegisterPlantAdmin';
+import RegisterTechnician from '../RegisterTechnician';
 
-const isLoggedIn = () => {
-    if(email === undefined) {
-        return false;
+class UserManager {
+static cred = {
+    email: undefined,
+    adminEmail: undefined
+}
+
+static isLoggedIn = () => {
+    if(UserManager.cred.email) {
+        return true;
     }
     else {
-        return true;
+        return false;
     }
 }
 
-const isAdminLoggedIn = () => {
-    if(adminEmail === undefined) {
-        return false;
-    }
-    else {
+static isAdminLoggedIn = () => {
+    if(UserManager.cred.adminEmail) {
         return true;
     }
+    else {
+        return false;
+    }
 }
-
+}
 const IS_TECHNICIAN_LOGGED_IN = (email) => gql`
 query {
     isTechnicianLoggedIn(email: ${email})
@@ -41,4 +47,36 @@ function IsTechnicianLoggedIn() {
     return <></>;
 }
 
-export {IsTechnicianLoggedIn, isLoggedIn, isAdminLoggedIn};
+const REGISTER_PLANT_ADMIN = gql`
+    mutation rpa($plantAdmin: PlantAdminInputType!){
+        registerPlantAdmin(plantAdmin: $plantAdmin)
+    }
+`
+
+const RegisterPlantAdminComponent = () => {
+    const [ register, { data, loading, error} ] = useMutation(REGISTER_PLANT_ADMIN);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error :(</p>;
+
+    return <RegisterPlantAdmin register={register}/>;
+}
+
+
+const REGISTER_TECHNICIAN = gql`
+    mutation rpa($technician: TechnicianInputType!){
+        registerTechnician(technician: $technician)
+    }
+`
+
+const RegisterTechnicianComponent = () => {
+    const [ register, { data, loading, error} ] = useMutation(REGISTER_TECHNICIAN);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error :(</p>;
+
+    return <RegisterTechnician register={register}/>;
+}
+
+
+export {IsTechnicianLoggedIn, UserManager, RegisterPlantAdminComponent, RegisterTechnicianComponent};

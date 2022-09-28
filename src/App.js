@@ -24,6 +24,7 @@ import DisplayEquipmentDetails from './components/services/EquipmentDetailsServi
 // Views 
 import Home from './views/Home';
 import Navbar from './components/Navbar';
+import { UserManager, RegisterPlantAdminComponent } from './components/services/Auth';
 
 // Initialize Google Analytics
 ReactGA.initialize(process.env.REACT_APP_GA_CODE);
@@ -32,6 +33,15 @@ const trackPage = page => {
   ReactGA.set({ page });
   ReactGA.pageview(page);
 };
+
+const Root = () => {
+  if(UserManager.isLoggedIn()) {
+    return <Dashboard/>
+  }
+  else {
+    return <Home/>
+  }
+}
 
 const App = () => {
 
@@ -48,11 +58,11 @@ const App = () => {
 
   return (
     <div className='container'>
-      <Navbar />
       <Routes>
+        <Route path="/" element={<Root/>} />
         <Route path="/Home" element={<Home />} />
         <Route path="/Register" element={<Register />}>
-          <Route path="/Register/PlantAdmin" element={<RegisterPlantAdmin />} />
+          <Route path="/Register/PlantAdmin" element={<RegisterPlantAdminComponent />} />
           <Route path="/Register/Technician" element={<RegisterTechnician />} />
         </Route>
         <Route path="/Dashboard" element={<Dashboard />} />

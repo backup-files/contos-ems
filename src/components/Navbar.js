@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import { NavLink } from 'react-router-dom1';
-import { isLoggedIn } from './services/Auth';
-import { isAdminLoggedIn } from './services/Auth';
+import { UserManager } from './services/Auth';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +24,7 @@ export default function Navbar() {
                         </li>
                         {
                             (() => {
-                                if (isLoggedIn())
+                                if (UserManager.isLoggedIn())
                                     return <li className="nav-item" style={{ marginLeft: "10px", textAlign: "center" }}>
                                         <NavLink className="nav-link" to="/Dashboard">Dashboard</NavLink>
                                     </li>
@@ -35,14 +34,14 @@ export default function Navbar() {
 
                     </ul>
                     {(() => {
-                        if (isLoggedIn()) {
+                        if (UserManager.isLoggedIn()) {
                             return <div className="dropdown text-end" style={{ backgroundColor: "#151719" }} >
                                 <button style={{ backgroundColor: "black" }} onClick={toggleOpen} className="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">
                                     <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" className="rounded-circle" />
                                 </button>
                                 <ul style={{ backgroundColor: "black", color: "white" }} className={`text-small dropdown-menu${isOpen ? " show" : ""}`}>
                                     {(() => {
-                                        if (isAdminLoggedIn()) { return <li><a className="text-small dropdown-item" href="/Notifications">Your Notifications</a></li> }
+                                        if (UserManager.isAdminLoggedIn()) { return <li><a className="text-small dropdown-item" href="/Notifications">Your Notifications</a></li> }
                                     })()
                                     }
                                     <li><a className="text-small dropdown-item" href="/Profile">Your Profile</a></li>
