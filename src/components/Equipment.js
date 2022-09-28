@@ -1,29 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom1';
 
-
-export default function Equipment() {
-
-
- var equipments=[{ Name: "ABC",Model: "EQ-01", Manufacturer:"XYZ"},
- { Name: "ABC",Model: "EQ-01", Manufacturer:"XYZ"},
- { Name: "ABC",Model: "EQ-01", Manufacturer:"XYZ"},
- { Name: "ABC",Model: "EQ-01", Manufacturer:"XYZ"},
- { Name: "ABC",Model: "EQ-01", Manufacturer:"XYZ"},
- { Name: "ABC",Model: "EQ-01", Manufacturer:"XYZ"},
- { Name: "ABC",Model: "EQ-01", Manufacturer:"XYZ"}
-  ];
+export default function Equipment(props) {
+ var equipments = props.data;
+ const navigate = useNavigate();
+ useEffect(() => {
+  setTimeout(() => {
+    console.log(equipments);
+  }, 1000);
+ }, [])
   return (
     <div className='container'>
       <div className='row'>
         { equipments.map((x,index)=>{ return(
           <div className="col-sm-4">
            <div className="card" style={{width: '18rem',margin:'20px'}}>
-           {<img className="card-img-top" style={{backgroundColor: "black"}} src="https://th.bing.com/th/id/OIP.nJRf2KD0ltgRkXIucrohpAHaDp?pid=ImgDet&rs=1" alt="Equipment image cap"/> }
+           <img className="card-img-top" style={{backgroundColor: "black"}} width="300px" height="400px" src={x.imageLink} alt="Equipment image cap"/> 
            <div className="card-body" style={{backgroundColor: "black"}}>
-            <h3 className="card-title">{x.Name}</h3> 
-            <h2>{x.Model}</h2>
-            <p className="card-text">{x.Manufacturer}</p>
-            <a href="/EquipmentDetails" className="btn btn-primary">See More</a>
+            <h3 className="card-title">{x.name}</h3> 
+            <h2>{x.model}</h2>
+            <p className="card-text">{x.manufacturer}</p>
+            <button className="btn btn-primary" onClick={
+              (e) => {
+                e.preventDefault();
+                navigate("/EquipmentDetails", {
+                  state: {id: x.id}
+                });
+              }
+            }>See More</button>
            </div>
        </div>
         </div>)})} 

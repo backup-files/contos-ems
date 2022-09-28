@@ -19,7 +19,8 @@ import Profile from './components/Profile';
 import AddEquipment from './components/AddEquipment';
 import AddNotification from './components/AddNotification';
 import LayoutDefault from './layouts/LayoutDefault';
-
+import DisplayNotifcations from './components/services/NotificationsService';
+import DisplayEquipmentDetails from './components/services/EquipmentDetailsService';
 // Views 
 import Home from './views/Home';
 import Navbar from './components/Navbar';
@@ -58,13 +59,13 @@ const App = () => {
         <Route path="/AddEquipment" element={<AddEquipment />} />
 
         <Route path="/About" element={<About />} />
-        <Route path="/EquipmentDetails" element={<EquipmentDetails />} />
+        <Route path="/EquipmentDetails" element={<DisplayEquipmentDetails />} />
         <Route path="/AddNotification" element={<AddNotification />} />
 
 
         <Route path="/Profile" element={<Profile />} />
 
-        <Route path="/Notifications" element={<Notifications />} />
+        <Route path="/Notifications" element={<DisplayNotifcations />} />
         <Route path="/Login" element={<Login />}>
           <Route path="/Login/Technician" element={<LoginTechnician />} />
           <Route path="/Login/PlantAdmin" element={<LoginPlantAdmin />} />

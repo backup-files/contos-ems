@@ -82,10 +82,10 @@ const Hero = ({
               aria-controls="video-modal"
             >
               <img
-                src={require('./../../assets/images/pr1.JPG')}
+                src={require('./../../assets/images/Screenshot 2022-09-28 100622.png')}
                 alt="Hero"
-                width={896}
-                height={504} />
+                width={500}
+                height={500} />
             </button>
           </div>
         </div>

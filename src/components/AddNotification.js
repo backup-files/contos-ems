@@ -1,7 +1,11 @@
 import React from 'react'
 import './login.css';
 import './noti.css';
+import { useLocation } from 'react-router-dom1';
+
 export default function AddNotification() {
+  const location = useLocation();
+  const name = location.state.name;
   return (
     
         <>
@@ -13,8 +17,8 @@ export default function AddNotification() {
         
           
           <div className="form-floating" >
-            <input type="text" className="form-control" id="name" placeholder="Equipment Name"/>
-              <label htmlFor="name">Equipment Name</label>
+            <input type="text" className="form-control" disabled id="name" placeholder={name}/>
+              <label htmlFor="name">{name}</label>
           </div>
           <div className="form-floating">
             <input type="text" className="form-control" id="floatingPassword" placeholder="Title"/>
@@ -27,7 +31,6 @@ export default function AddNotification() {
           <div className="form-floating">
          < input type="text" className="form-control" id="comm" placeholder="Comments"/>
               <label htmlFor="comm">Comments</label>
-           
           </div>
          
           

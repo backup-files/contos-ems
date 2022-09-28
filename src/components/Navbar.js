@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Navbar.css';
 import { NavLink } from 'react-router-dom1';
 import { isLoggedIn } from './services/Auth';
+import { isAdminLoggedIn } from './services/Auth';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +25,7 @@ export default function Navbar() {
                         </li>
                         {
                             (() => {
-                                if(isLoggedIn())
+                                if (isLoggedIn())
                                     return <li className="nav-item" style={{ marginLeft: "10px", textAlign: "center" }}>
                                         <NavLink className="nav-link" to="/Dashboard">Dashboard</NavLink>
                                     </li>
@@ -40,7 +41,10 @@ export default function Navbar() {
                                     <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" className="rounded-circle" />
                                 </button>
                                 <ul style={{ backgroundColor: "black", color: "white" }} className={`text-small dropdown-menu${isOpen ? " show" : ""}`}>
-                                    <li><a className="text-small dropdown-item" href="/Notifications">Your Notifications</a></li>
+                                    {(() => {
+                                        if (isAdminLoggedIn()) { return <li><a className="text-small dropdown-item" href="/Notifications">Your Notifications</a></li> }
+                                    })()
+                                    }
                                     <li><a className="text-small dropdown-item" href="/Profile">Your Profile</a></li>
                                     <li><hr className="dropdown-divider" /></li>
                                     <li><a className="text-small dropdown-item" href="#">Sign out</a></li>
@@ -49,8 +53,8 @@ export default function Navbar() {
                         }
                         else {
                             return <>
-                            <a className="nav-link" href="/Register">Register</a>
-                                <a className="nav-link" href="/Login">Login</a>
+                                <a className="btn btn-primary btn-rounded "  style={{marginRight:"10px"}}href="/Register" >Register</a>
+                                <a className="btn btn-primary btn-rounded" style={{marginRight:"10px"}} href="/Login">Login</a>
                             </>
                         }
                     })()
