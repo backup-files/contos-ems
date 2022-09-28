@@ -11,12 +11,11 @@ export default function LoginTechnician() {
   return (
     <>
       <div className="text-center">
+        <h2>Technician Login</h2>
 
         <main className="form-signin w-300 m-auto">
           <form >
-            {/* <img className="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"/> */}
-            {/* <h1 className="h3 mb-3 fw-normal">Technician Sign Up</h1> */}
-
+            
             <div className="form-floating">
               <input type="email" className="form-control" id="floatingPassword" placeholder="name@example.com" />
               <label htmlFor="floatingPassword">Email address</label>

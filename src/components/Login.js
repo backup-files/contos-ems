@@ -13,6 +13,7 @@ export default function Register() {
 
   return (
     <>
+     <img className="mb-4" src={require("./../../src/Image/logo-mercury.png")} alt="" width="120px" height="100px" class="center" />
       <ul className="nav nav-pills justify-content-center m-2"  >
         <li className="nav-item">
           <NavLink className="nav-link" style={navStyle} to="/Login/LoginPlantAdmin">Login as Plant Admin</NavLink>

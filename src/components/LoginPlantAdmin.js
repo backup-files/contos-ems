@@ -9,11 +9,10 @@ export default function LoginPlantAdmin() {
   return (
     <>
     <div className="text-center" >
+      <h2>Plant Admin Login</h2>
 
-<main className="form-login w-300 m-auto">
+<main className="form-signin w-300 m-auto">
   <form >
-    {/* <img className="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"/> */}
-      {/* <h1 className="h3 mb-3 fw-normal">Plant Admin Sign Up</h1> */}
       
       <div className="form-floating">
         <input type="email" className="form-control" id="floatingPassword" placeholder="name@example.com"/>

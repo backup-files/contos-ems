@@ -4,6 +4,7 @@ import Login from './components/Login';
 import LoginTechnician from './components/LoginTechnician';
 import LoginPlantAdmin from './components/LoginPlantAdmin';
 import Notifications from './components/Notifications';
+import AddNotification from './components/AddNotification';
 import './App.css';
 
 
@@ -12,7 +13,7 @@ function App() {
     <>
     <div id="mainBody" className="container">
     <Routes>
-          <Route path="/" element={<Notifications/>}/> 
+          <Route path="/" element={<AddNotification/>}/> 
     <Route path="/Login" element={<Login/>}>
         <Route path="/Login/LoginTechnician" element={<LoginTechnician/>}/>
          <Route path="/Login/LoginPlantAdmin" element={<LoginPlantAdmin/>}/>
