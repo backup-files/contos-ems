@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './Navbar';
 import Equipment from './Equipment';
 import Footer from './Footer';
-
+import { isAdminLoggedIn } from './services/Auth';
 export default function Dashboard() {
   const [isOpen, setIsOpen] = useState(false);
     const toggleOpen = () => setIsOpen(!isOpen);
@@ -21,10 +21,11 @@ export default function Dashboard() {
                             <li><button className="text-small dropdown-item" >Type</button></li>
             </ul>
             </div>
-        
-            <div style={{ "textAlign": 'right' }}>
+            {(() => {
+            if (isAdminLoggedIn())  { return <div style={{ "textAlign": 'right' }}>
               <a className="btn btn-primary btn-rounded"  href="AddEquipment">Add Equipments</a>
-              </div>
+              </div>} })()
+                            }
             </>
       <Equipment />
       <Footer />

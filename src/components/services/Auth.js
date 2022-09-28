@@ -1,6 +1,6 @@
 import { useQuery, gql } from '@apollo/client';
 import React, { useEffect } from 'react';
-var email = undefined;
+var email =  undefined;
 var adminEmail = undefined;
 
 const isLoggedIn = () => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import './EquipmentDetails.css';
+import { isAdminLoggedIn,isLoggedIn } from './services/Auth';
 
 export default function EquipmentDetails() {
     return (
@@ -20,7 +21,9 @@ export default function EquipmentDetails() {
                                 <p>Lorem Ipsum available,but the majority have suffered alteration in some form,by injected humour,or randomised words which don't
                                     look even slightly believable.but the majority have suffered alteration in some form,by injected humour</p>
                                 {/* <button className="btn btn-primary btn-rounded"  href="AddNotification">Raise Notification</button> */}
-                                <a className="btn btn-primary btn-rounded"  href="AddNotification">Raise Notification</a>
+                                {(() => {
+            if (!isAdminLoggedIn() && isLoggedIn()){ return <a className="btn btn-primary btn-rounded"  href="AddNotification">Raise Notification</a>}})()
+        }
 
                                 <h3 className="box-title mt-5">Key Features</h3>
                                 <ul className="list-unstyled">
