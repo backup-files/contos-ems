@@ -18,8 +18,8 @@ export default function Equipment() {
         { equipments.map((x,index)=>{ return(
           <div className="col-sm-4">
            <div className="card" style={{width: '18rem',margin:'20px'}}>
-           {<img className="card-img-top" src="https://th.bing.com/th/id/OIP.nJRf2KD0ltgRkXIucrohpAHaDp?pid=ImgDet&rs=1" alt="Equipment image cap"/> }
-           <div className="card-body">
+           {<img className="card-img-top" style={{backgroundColor: "black"}} src="https://th.bing.com/th/id/OIP.nJRf2KD0ltgRkXIucrohpAHaDp?pid=ImgDet&rs=1" alt="Equipment image cap"/> }
+           <div className="card-body" style={{backgroundColor: "black"}}>
             <h3 className="card-title">{x.Name}</h3> 
             <h2>{x.Model}</h2>
             <p className="card-text">{x.Manufacturer}</p>

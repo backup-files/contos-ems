@@ -14,10 +14,10 @@ export default function Register() {
     <>
       <ul id="tabView" className="nav nav-pills justify-content-center m-2"  >
         <li className="nav-item">
-          <NavLink className="nav-link" style={navStyle} to="/Login/LoginPlantAdmin">Login as Plant Admin</NavLink>
+          <NavLink className="nav-link" style={navStyle} to="/Login/PlantAdmin">Login as Plant Admin</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" style={navStyle} to="/Login/LoginTechnician">Login as Technician</NavLink>
+          <NavLink className="nav-link" style={navStyle} to="/Login/Technician">Login as Technician</NavLink>
         </li>
       </ul>
       <div className="container" >

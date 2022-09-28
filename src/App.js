@@ -14,10 +14,10 @@ import Login from './components/Login';
 import LoginTechnician from './components/LoginTechnician';
 import LoginPlantAdmin from './components/LoginPlantAdmin';
 import Notifications from './components/Notifications';
-
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
-// Layouts
+import About from './components/About';
+import Profile from './components/Profile';
+import AddEquipment from './components/AddEquipment';
+import AddNotification from './components/AddNotification';
 import LayoutDefault from './layouts/LayoutDefault';
 
 // Views 
@@ -46,32 +46,32 @@ const App = () => {
   // }, [location]);
 
   return (
-    <>
-      <Navbar/>
-      {/* <Header navPosition="right" className="reveal-from-bottom" /> */}
-      {/* <ScrollReveal
-        ref={childRef}
-        children={() => (
-          <Switch>
-            <AppRoute exact path="/" component={Home} layout={LayoutDefault} />
-          </Switch>
-        )} /> */}
+    <div className='container'>
+      <Navbar />
       <Routes>
-        <Route path="/Home" element={<Home/>}/>
+        <Route path="/Home" element={<Home />} />
         <Route path="/Register" element={<Register />}>
           <Route path="/Register/PlantAdmin" element={<RegisterPlantAdmin />} />
           <Route path="/Register/Technician" element={<RegisterTechnician />} />
         </Route>
         <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/AddEquipment" element={<AddEquipment />} />
+
+        <Route path="/About" element={<About />} />
         <Route path="/EquipmentDetails" element={<EquipmentDetails />} />
-        <Route path="/" element={<Notifications />} />
+        <Route path="/AddNotification" element={<AddNotification />} />
+
+
+        <Route path="/Profile" element={<Profile />} />
+
+        <Route path="/Notifications" element={<Notifications />} />
         <Route path="/Login" element={<Login />}>
-          <Route path="/Login/LoginTechnician" element={<LoginTechnician />} />
-          <Route path="/Login/LoginPlantAdmin" element={<LoginPlantAdmin />} />
+          <Route path="/Login/Technician" element={<LoginTechnician />} />
+          <Route path="/Login/PlantAdmin" element={<LoginPlantAdmin />} />
         </Route>
       </Routes>
       {/* <Footer/> */}
-    </>
+    </div>
   );
 }
 

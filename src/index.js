@@ -5,10 +5,20 @@ import { createBrowserHistory } from "history";
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import $ from 'jquery';
+import Popper from 'popper.js';
 //import './App.css';
 import './assets/scss/style.scss';
 import { BrowserRouter } from 'react-router-dom1';
+import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'https://contosems.azurewebsites.net/graphql',
+  cache: new InMemoryCache(),
+});
 
 const history = createBrowserHistory();
 
@@ -17,7 +27,9 @@ ReactDOM.render(<>
     <App />
   </Router> */}
   <BrowserRouter>
-    <App/>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
   </BrowserRouter>
 
 </>,

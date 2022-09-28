@@ -6,7 +6,7 @@ export default function RegisterPlantAdmin() {
     <>
     <div className="text-center" >
 
-<main className="form-signin m-auto">
+<main className="form-signin m-auto ">
   <form className="register-form">
     {/* <img className="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"/> */}
       {/* <h1 className="h3 mb-3 fw-normal">Plant Admin Sign Up</h1> */}
