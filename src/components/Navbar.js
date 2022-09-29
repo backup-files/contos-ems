@@ -53,6 +53,7 @@ export default function Navbar() {
                                     <li><hr className="dropdown-divider" /></li>
                                     <li><NavLink className="text-small dropdown-item" href="#" onClick={
                                         (e) => {
+                                            e.preventDefault();
                                             if (UserManager.isAdminLoggedIn()) {
                                                 const input = {
                                                     "email": UserManager.cred.adminEmail
@@ -60,7 +61,7 @@ export default function Navbar() {
                                                 // logoutPA({variable: input})
                                                 UserManager.cred.adminEmail = undefined;
                                                 UserManager.cred.email = undefined;
-                                                navigate("/");
+                                                console.log("admin logged out");
                                             }
                                             else if(UserManager.isLoggedIn()) {
                                                 const input = {
@@ -69,8 +70,9 @@ export default function Navbar() {
                                                 // logoutT({variable: input})
                                                 UserManager.cred.adminEmail = undefined;
                                                 UserManager.cred.email = undefined;
-                                                navigate("/");
+                                                console.log("user signed out");
                                             }
+                                            navigate("/Home");
                                         }
                                     }>Sign out</NavLink></li>
                                 </ul>
