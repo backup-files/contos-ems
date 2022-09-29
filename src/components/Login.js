@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Outlet, NavLink } from "react-router-dom1";
+import Navbar from './Navbar';
 // import './login.css';
 
 export default function Register() {
@@ -12,6 +13,7 @@ export default function Register() {
 
   return (
     <>
+    <Navbar/>
       <ul id="tabView" className="nav nav-pills justify-content-center m-2"  >
         <li className="nav-item">
           <NavLink className="nav-link" style={navStyle} to="/Login/PlantAdmin">Login as Plant Admin</NavLink>

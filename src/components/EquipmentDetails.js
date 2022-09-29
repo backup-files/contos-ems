@@ -2,12 +2,14 @@ import React from 'react';
 import './EquipmentDetails.css';
 import { UserManager } from './services/Auth';
 import { useNavigate } from 'react-router-dom1';
+import Navbar from './Navbar';
 
 export default function EquipmentDetails(props) {
     const details = props.data;
     const navigate = useNavigate();
     return (
         <div>
+            <Navbar/>
             <div className="container">
                 <div className="card" style={{ backgroundColor: "black", borderColor: "black", color: "white" }}>
                     <div className="card-body" style={{ borderColor: "black" }}>
@@ -27,7 +29,9 @@ export default function EquipmentDetails(props) {
                                         e.preventDefault();
                                         navigate('/AddNotification', {
                                             state: {
-                                                name: details.name
+                                                name: details.name,
+                                                id: details.id,
+                                                serviceDueDate: details.serviceDueDate
                                             }
                                         })
                                     }}>Raise Notification</button> }

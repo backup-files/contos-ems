@@ -68,12 +68,12 @@ const Hero = ({
                 We here manage all your plant Equipments!
                 </p>
               <div className="reveal-from-bottom" data-reveal-delay="600">
-                <ButtonGroup>
+                {/* <ButtonGroup>
                   
                   <Button tag="a" color="dark" wideMobile href="https://github.com/tezz-io/contos-ems">
                     View on Github
                     </Button>
-                </ButtonGroup>
+                </ButtonGroup> */}
               </div>
             </div>
           </div>

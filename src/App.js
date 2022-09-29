@@ -24,7 +24,8 @@ import DisplayEquipmentDetails from './components/services/EquipmentDetailsServi
 // Views 
 import Home from './views/Home';
 import Navbar from './components/Navbar';
-import { UserManager, RegisterPlantAdminComponent } from './components/services/Auth';
+import { UserManager, RegisterPlantAdminComponent, RegisterTechnicianComponent, LoginTechnicianComponent, LoginPlantAdminComponent } from './components/services/Auth';
+import DisplayAddNotification from './components/services/AddNotificationService';
 
 // Initialize Google Analytics
 ReactGA.initialize(process.env.REACT_APP_GA_CODE);
@@ -63,22 +64,21 @@ const App = () => {
         <Route path="/Home" element={<Home />} />
         <Route path="/Register" element={<Register />}>
           <Route path="/Register/PlantAdmin" element={<RegisterPlantAdminComponent />} />
-          <Route path="/Register/Technician" element={<RegisterTechnician />} />
+          <Route path="/Register/Technician" element={<RegisterTechnicianComponent />} />
         </Route>
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/AddEquipment" element={<AddEquipment />} />
 
         <Route path="/About" element={<About />} />
         <Route path="/EquipmentDetails" element={<DisplayEquipmentDetails />} />
-        <Route path="/AddNotification" element={<AddNotification />} />
-
+        <Route path="/AddNotification" element={<DisplayAddNotification />} />
 
         <Route path="/Profile" element={<Profile />} />
 
         <Route path="/Notifications" element={<DisplayNotifcations />} />
         <Route path="/Login" element={<Login />}>
-          <Route path="/Login/Technician" element={<LoginTechnician />} />
-          <Route path="/Login/PlantAdmin" element={<LoginPlantAdmin />} />
+          <Route path="/Login/Technician" element={<LoginTechnicianComponent />} />
+          <Route path="/Login/PlantAdmin" element={<LoginPlantAdminComponent />} />
         </Route>
       </Routes>
       {/* <Footer/> */}

@@ -4,6 +4,7 @@ import Equipment from './Equipment';
 import Footer from './Footer';
 import DisplayEquipments from './services/EquipmentsService';
 import { UserManager } from './services/Auth';
+import { NavLink } from 'react-router-dom1';
 // import Navbar from './Navbar';
 export default function Dashboard() {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +47,7 @@ export default function Dashboard() {
         {(() => {
           if (UserManager.isAdminLoggedIn()) {
             return <div style={{ "textAlign": 'right' }}>
-              <a className="btn btn-primary btn-rounded" href="AddEquipment">Add Equipments</a>
+              <NavLink className="btn btn-primary btn-rounded" to="/AddEquipment">Add Equipments</NavLink>
             </div>
           }
         })()

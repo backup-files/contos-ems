@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import './Navbar.css';
-import { NavLink } from 'react-router-dom1';
+import { Navigate, NavLink, useNavigate } from 'react-router-dom1';
 import { UserManager } from './services/Auth';
+import { useMutation } from '@apollo/client';
+// import { LOGOUT_TECHNICIAN, LOGOUT_PLANT_ADMIN } from './services/Auth';
 
 export default function Navbar() {
+    // const [ logoutT, { data: dataT, loading: loadingT, error: errorT} ] = useMutation(LOGOUT_TECHNICIAN);
+    // const [ logoutPA, { data: dataPA, loading: loadingPA, error: errorPA } ] = useMutation(LOGOUT_PLANT_ADMIN);
     const [isOpen, setIsOpen] = useState(false);
     const toggleOpen = () => setIsOpen(!isOpen);
+    const navigate = useNavigate();
     return (
         <header className="p-3 mb-3 border-bottom" >
             <div className="container">
@@ -41,12 +46,33 @@ export default function Navbar() {
                                 </button>
                                 <ul style={{ backgroundColor: "black", color: "white" }} className={`text-small dropdown-menu${isOpen ? " show" : ""}`}>
                                     {(() => {
-                                        if (UserManager.isAdminLoggedIn()) { return <li><a className="text-small dropdown-item" href="/Notifications">Your Notifications</a></li> }
+                                        if (UserManager.isAdminLoggedIn()) { return <li><NavLink className="text-small dropdown-item" to="/Notifications">Your Notifications</NavLink></li> }
                                     })()
                                     }
-                                    <li><a className="text-small dropdown-item" href="/Profile">Your Profile</a></li>
+                                    {/* <li><NavLink className="text-small dropdown-item" href="/Profile">Your Profile</NavLink></li> */}
                                     <li><hr className="dropdown-divider" /></li>
-                                    <li><a className="text-small dropdown-item" href="#">Sign out</a></li>
+                                    <li><NavLink className="text-small dropdown-item" href="#" onClick={
+                                        (e) => {
+                                            if (UserManager.isAdminLoggedIn()) {
+                                                const input = {
+                                                    "email": UserManager.cred.adminEmail
+                                                }
+                                                // logoutPA({variable: input})
+                                                UserManager.cred.adminEmail = undefined;
+                                                UserManager.cred.email = undefined;
+                                                navigate("/");
+                                            }
+                                            else if(UserManager.isLoggedIn()) {
+                                                const input = {
+                                                    "email": UserManager.cred.adminEmail
+                                                }
+                                                // logoutT({variable: input})
+                                                UserManager.cred.adminEmail = undefined;
+                                                UserManager.cred.email = undefined;
+                                                navigate("/");
+                                            }
+                                        }
+                                    }>Sign out</NavLink></li>
                                 </ul>
                             </div>
                         }

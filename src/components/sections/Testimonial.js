@@ -68,10 +68,10 @@ const Testimonial = ({
                       </p>
                 </div>
                 <div className="testimonial-item-footer text-xs mt-32 mb-0 has-top-divider">
-                  <span className="testimonial-item-name text-color-high">Stafford</span>
+                  <span className="testimonial-item-name text-color-high">Mack Kol</span>
                   <span className="text-color-low"> / </span>
                   <span className="testimonial-item-link">
-                    <a href="#0">Madras Plant Admin</a>
+                    <a href="#0">Lisbon Plant Admin</a>
                   </span>
                 </div>
               </div>

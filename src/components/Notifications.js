@@ -22,7 +22,9 @@
 // }
 
 import React, { useEffect, useState } from 'react';
+import Navbar from './Navbar';
 import Notification from './Notification';
+import { UserManager } from './services/Auth';
 
 
 export default function Notifications(props) {
@@ -34,10 +36,12 @@ export default function Notifications(props) {
   useEffect(() => {
     setTimeout(() => {
       console.log(props.data);
+      console.log(UserManager.cred, UserManager.isLoggedIn(), UserManager.isAdminLoggedIn);
     }, 1000);
-  }, [])
+  }, []);
   return (
     <>
+      <Navbar/>
       <div className="dropdown show">
         <button style={{ backgroundColor: "black" }} onClick={toggleOpen} className="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">
           Filter by

@@ -1,15 +1,26 @@
 import { useQuery, gql, useMutation } from '@apollo/client';
 import React, { useEffect } from 'react';
+import LoginPlantAdmin from '../LoginPlantAdmin';
+import LoginTechnician from '../LoginTechnician';
 import RegisterPlantAdmin from '../RegisterPlantAdmin';
 import RegisterTechnician from '../RegisterTechnician';
 
-class UserManager {
-static cred = {
+class _UserManager {
+    constructor() {
+        if (_UserManager._instance) {
+            throw new Error("Singleton classes can't be instantiated more than once.")
+        }
+        _UserManager._instance = this;
+    
+        // ... your rest of the constructor code goes after this
+    }
+      
+cred = {
     email: undefined,
     adminEmail: undefined
 }
 
-static isLoggedIn = () => {
+isLoggedIn = () => {
     if(UserManager.cred.email) {
         return true;
     }
@@ -18,7 +29,7 @@ static isLoggedIn = () => {
     }
 }
 
-static isAdminLoggedIn = () => {
+isAdminLoggedIn = () => {
     if(UserManager.cred.adminEmail) {
         return true;
     }
@@ -27,6 +38,7 @@ static isAdminLoggedIn = () => {
     }
 }
 }
+const UserManager = new _UserManager();
 const IS_TECHNICIAN_LOGGED_IN = (email) => gql`
 query {
     isTechnicianLoggedIn(email: ${email})
@@ -64,7 +76,7 @@ const RegisterPlantAdminComponent = () => {
 
 
 const REGISTER_TECHNICIAN = gql`
-    mutation rpa($technician: TechnicianInputType!){
+    mutation rt($technician: TechnicianInputType!){
         registerTechnician(technician: $technician)
     }
 `
@@ -79,4 +91,36 @@ const RegisterTechnicianComponent = () => {
 }
 
 
-export {IsTechnicianLoggedIn, UserManager, RegisterPlantAdminComponent, RegisterTechnicianComponent};
+const LOGIN_PLANT_ADMIN = gql`
+    mutation lpa($plantAdmin: PlantAdminInputType!){
+        loginPlantAdmin(plantAdmin: $plantAdmin)
+    }
+`
+
+const LoginPlantAdminComponent = () => {
+    const [ login, { data, loading, error} ] = useMutation(LOGIN_PLANT_ADMIN);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error :(</p>;
+
+    return <LoginPlantAdmin login={login}/>;
+}
+
+
+const LOGIN_TECHNICIAN = gql`
+    mutation lt($technician: TechnicianInputType!){
+        loginTechnician(technician: $technician)
+    }
+`
+
+const LoginTechnicianComponent = () => {
+    const [ login, { data, loading, error} ] = useMutation(LOGIN_TECHNICIAN);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error :(</p>;
+
+    return <LoginTechnician login={login}/>;
+}
+
+
+export {IsTechnicianLoggedIn, UserManager, RegisterPlantAdminComponent, RegisterTechnicianComponent, LoginTechnicianComponent, LoginPlantAdminComponent};

@@ -1,5 +1,6 @@
 import React from 'react'
 import './login.css';
+import Navbar from './Navbar';
 import './noti.css';
 export default function AddEquipment() {
   const installedDateRef = React.useRef();
@@ -9,6 +10,7 @@ export default function AddEquipment() {
   return (
     
         <>
+        <Navbar/>
         <div className="text-center" >
           <h3>Add Equipment</h3>
     
